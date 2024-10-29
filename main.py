@@ -16,9 +16,9 @@ def lz77_compress_string(data, window_size=10):
                 length += 1
 
             # If we found a match with the same length but a smaller offset, prioritize it
-            if length > match[1] or (length == match[1] and (i - j) < match[0]):
-                match = (i - j, length, data[i + length] if i + length < len(data) else '')
-
+                if length > match[1]:
+                    match = (i - j, length, data[i + length] if i + length < len(data) else '')
+            
         # Add the best match found to the compressed data
         compressed_data.append(match)
 
@@ -57,24 +57,20 @@ def main():
         "AABAABCAABC",            # Partial repetitions
         "",                       # Empty string
         "A",                      # Single character
-        "Eslam Sayed Younus"
+        "Eslam Sayed Younus 20220495"
     ]
 
     # Test each string and validate the compression and decompression
     for i, test_str in enumerate(test_strings):
         print(f"Test {i + 1}: Input = '{test_str}'")
 
-        # Step 1: Compress the input string
         compressed = lz77_compress_string(test_str)
         print("Compressed Output:", compressed)
 
-        # Step 2: Decompress the compressed data
         decompressed = lz77_decompress_string(compressed)
 
-        # Step 3: Verify if decompressed output matches the original input
         print("Decompressed Output:", decompressed)
 
-        # Step 4: Check if the decompressed string is the same as the original input
         if decompressed == test_str:
             print("Test Passed! 🎉")
         else:
