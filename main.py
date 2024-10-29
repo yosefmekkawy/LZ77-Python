@@ -1,3 +1,8 @@
+#  Eslam Sayed Younus   20220495
+#  Youssef El-Mekkawy   20220386
+#  Youssef Hossam Ahmed 20220390
+
+
 def lz77_compress_string(data, window_size=10):
     i = 0
     compressed_data = []
@@ -57,7 +62,8 @@ def main():
         "AABAABCAABC",            # Partial repetitions
         "",                       # Empty string
         "A",                      # Single character
-        "Eslam Sayed Younus 20220495"
+        "Eslam Sayed Younus 20220495",
+        "fjdaklsjfAjgklasfHFgdsafjkljfasdGhoujAFDDFFFFFFFFFFFFFFFFFFFFFFFFASgfagjklsa;jSAAAAAAAAABABABAABABABABABSJSJSJSJSJSJSJSJSJSJSJSJSJ"
     ]
 
     # Test each string and validate the compression and decompression
@@ -72,9 +78,9 @@ def main():
         print("Decompressed Output:", decompressed)
 
         if decompressed == test_str:
-            print("Test Passed! 🎉")
+            print("Test Passed!")
         else:
-            print("Test Failed! ❌")
+            print("Test Failed!")
 
         print("-" * 50)
 
